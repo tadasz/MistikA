@@ -82,20 +82,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
             finishStage()
         }
     }
-    
-    //old
-    
-    var i = 0
-    func showPhoto() {
-        i++
-        if i < 15 {
-            let imgName = "illiusion\(i).jpg"
-            myImageView.image = UIImage(named: imgName);
-        }
-        else {
-            i = 0
-        }
-    }
+
     /*
     // MARK: - Navigation
 
