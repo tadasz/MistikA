@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         locationManager.delegate = self
         
-        GameController.sharedInstance.currentGameStage = GameStage.StereogramPuzzle
+//        GameController.sharedInstance.currentGameStage = GameStage.StereogramPuzzle
+        
         
         return true
     }

@@ -465,10 +465,10 @@
             </objects>
             <point key="canvasLocation" x="-616" y="2100"/>
         </scene>
-        <!--Optical Illusion View Controller-->
+        <!--Stereo Illusion View Controller-->
         <scene sceneID="MNL-Ry-RYm">
             <objects>
-                <viewController id="FY9-gd-1A9" customClass="OpticalIllusionViewController" customModule="MistikA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FY9-gd-1A9" customClass="StereoIllusionViewController" customModule="MistikA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t4i-0B-m4n"/>
                         <viewControllerLayoutGuide type="bottom" id="Inp-7k-hJ4"/>

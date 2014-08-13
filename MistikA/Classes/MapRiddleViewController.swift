@@ -153,6 +153,7 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
     }
     
     func finishStage() {
+        self.answerTextField.resignFirstResponder()
         answerBarHeight.constant = 0
         view.setNeedsLayout()
         
@@ -161,6 +162,8 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
         answerButton.hidden = true
         riddleImageView.image = UIImage(named: "epic-win.jpg")
         riddleImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        self.playSoundWin()
     }
 
 }

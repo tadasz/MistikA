@@ -37,6 +37,12 @@ class LevelCollectionViewController: UICollectionViewController {
         self.collectionView.collectionViewLayout = flowLayout
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

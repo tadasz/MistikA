@@ -88,9 +88,9 @@ static bool wasted = NO;
     [self addChild:scoreLabel];
     
     totalScoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica-Bold"];
-    totalScoreLabel.text = [NSString stringWithFormat:@"Liko... %li",kTotalScoreLimit - ([Score totalScore] + self.score)];
+    totalScoreLabel.text = [NSString stringWithFormat:@"Liko... %ld",(long)(kTotalScoreLimit - ([Score totalScore] + self.score))];
     totalScoreLabel.fontSize = 50;
-    totalScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame)-50);
+    totalScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame));
     [self addChild:totalScoreLabel];
 
 }

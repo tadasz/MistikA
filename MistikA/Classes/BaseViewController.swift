@@ -30,6 +30,10 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
     }
     
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)        
+        player.stop()
+    }
     
     /*
     // MARK: - Navigation
@@ -72,5 +76,15 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
         player.play()
     }
     
+    func playSoundWin() {
+        if player.playing {
+            player.stop()
+        }
+        
+        var fileName: String = "mistika"
+        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "wav")), fileTypeHint: "wav", error: nil)
+        player.numberOfLoops = -1
+        player.play()
+    }
 
 }

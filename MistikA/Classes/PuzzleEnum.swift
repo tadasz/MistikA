@@ -111,8 +111,8 @@ extension OpticalIllusionPuzzle: PuzzleEnum {
 // MARK: - Stereo Illusion Puzzle
 
 enum StereoIllusionPuzzle: Int {
-    case Ant = 0
-    case Cow
+    case Cow = 0
+    case Vilkas
     case Dolphins
     case Drakonas
     case Drugelis
@@ -127,10 +127,10 @@ enum StereoIllusionPuzzle: Int {
     case Skull
     case Sports_car
     case Tea_pot
-    case Vilkas
+    case Ant
     case Woman
     
-    static let allValues = [Ant, Cow, Dolphins, Drakonas, Drugelis, Flying_bird, Gorilla, Heart, Infinity, Kaukole, Kirvis, Pianinas, Skateboard, Skull, Sports_car, Tea_pot, Vilkas, Woman]
+    static let allValues = [Cow, Vilkas, Dolphins, Drakonas, Drugelis, Flying_bird, Gorilla, Heart, Infinity, Kaukole, Kirvis, Pianinas, Skateboard, Skull, Sports_car, Tea_pot,Ant, Woman]
 }
 
 extension StereoIllusionPuzzle: PuzzleEnum {
@@ -193,7 +193,7 @@ extension StereoIllusionPuzzle: PuzzleEnum {
         case Drugelis:
             return ["drugelis", "drugys"]
         case Flying_bird:
-            return ["paukstis", "paukštis", "skrenda", "skrendantis", "skrendantis paukstis"]
+            return ["paukstis", "paukštis", "skrenda", "skrendantis", "skrendantis paukstis", "erelis"]
         case Gorilla:
             return ["gorila", "gorilos", "bezdžionė", "bezdzione"]
         case Heart:

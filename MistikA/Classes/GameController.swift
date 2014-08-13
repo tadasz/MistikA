@@ -9,9 +9,9 @@
 import Foundation
 
 enum GameStage: Int {
-    case MapPuzzle = 0, FlappyPuzzle, OpticalIllusionPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle
+    case MapPuzzle = 0, OpticalIllusionPuzzle, FlappyPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle
     
-    static var allPuzzles = [MapPuzzle, FlappyPuzzle, OpticalIllusionPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle]
+    static var allPuzzles = [MapPuzzle, OpticalIllusionPuzzle, FlappyPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle]
 }
 
 let CURRENT_GAME_STAGE_KEY = "currentGameStage"
@@ -47,8 +47,8 @@ class GameController: NSObject {
     }
     
     func loadInitialValues() {
-        
-        if let stageRaw: Int? = NSUserDefaults.standardUserDefaults().objectForKey(CURRENT_GAME_STAGE_KEY) as Int? {
+        let stageRaw: Int? = NSUserDefaults.standardUserDefaults().objectForKey(CURRENT_GAME_STAGE_KEY) as Int?
+        if  stageRaw != nil {
             currentGameStage = GameStage.fromRaw(stageRaw!)!
         }
         else {
