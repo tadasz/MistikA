@@ -17,7 +17,7 @@ class FindPalepeViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "78E408FD-48DA-4325-9123-0AEA40925EFF"), identifier: "com.identifier")
     
-    required init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder)  {
         super.init(coder: aDecoder)
     }
     

@@ -22,7 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         locationManager.delegate = self
         
-//        GameController.sharedInstance.currentGameStage = GameStage.StereogramPuzzle
+//        let gameStage = GameStage.TimerPuzzle
+        GameController.sharedInstance.currentGameStage = GameStage.IndoorPuzzle
+        
+        println("gameStage: \(GameController.sharedInstance.currentGameStage.rawValue)")
         
         
         return true

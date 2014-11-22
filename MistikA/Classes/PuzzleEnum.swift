@@ -40,7 +40,7 @@ enum OpticalIllusionPuzzle: Int {
 extension OpticalIllusionPuzzle: PuzzleEnum {
     var fileName: String {
         get {
-            return "illiusion\(self.toRaw()+1).jpg"
+            return "illiusion\(self.rawValue+1).jpg"
         }
     }
     
@@ -48,7 +48,7 @@ extension OpticalIllusionPuzzle: PuzzleEnum {
         get {
             switch self {
             case .Kareivis:
-                return ["kareivis", "mociute", "boba", "sikna"]
+                return ["kareivis", "veidas", "mociute", "boba", "sikna"]
             case .Delfinai:
                 return ["porele", "seksas", "delfinai", "delfinas"]
             case .Asilas:
@@ -64,11 +64,11 @@ extension OpticalIllusionPuzzle: PuzzleEnum {
             case .Moteris:
                 return ["moteris", "vaikas", "berniukas"]
             case .Ponas:
-                return ["ponas", "asilas"]
+                return ["ponas", "asilas", "ponai", "slektos"]
             case .Mociute:
                 return ["mociute", "sene", "mergina", "jaunuole", "mergaite"]
             case .Seneliai:
-                return ["seneliai", "senukai", "seniai", "daininkai", "girtuokliai"]
+                return ["seneliai", "senukai", "seniai", "daininkai", "girtuokliai", "muzikantai"]
             case .Meska:
                 return ["meska", "ruonis"]
             case .Antis:
@@ -130,7 +130,7 @@ enum StereoIllusionPuzzle: Int {
     case Ant
     case Woman
     
-    static let allValues = [Cow, Vilkas, Dolphins, Drakonas, Drugelis, Flying_bird, Gorilla, Heart, Infinity, Kaukole, Kirvis, Pianinas, Skateboard, Skull, Sports_car, Tea_pot,Ant, Woman]
+    static let allValues = [Cow, Vilkas, Dolphins, Drakonas, Drugelis, Flying_bird, Gorilla, Heart, Infinity, Kaukole, Kirvis, Pianinas, Skateboard, Skull, Sports_car, Tea_pot, Ant, Woman]
 }
 
 extension StereoIllusionPuzzle: PuzzleEnum {

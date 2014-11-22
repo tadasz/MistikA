@@ -18,7 +18,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
     
     var currentLevelCount = GameController.sharedInstance.stageProgress
     
-    override init(coder aDecoder: NSCoder!) {
+    override init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -50,10 +50,10 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
     func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
         if alertView.tag == 6554 {
             if buttonIndex == 0 {
-                let enteredText = alertView.textFieldAtIndex(0).text
+                let enteredText = alertView.textFieldAtIndex(0)?.text
                 
-                if let level = OpticalIllusionPuzzle.fromRaw(currentLevelCount) {
-                    if level.isCorrectAnswer(enteredText) {
+                if let level = OpticalIllusionPuzzle(rawValue: currentLevelCount) {
+                    if level.isCorrectAnswer(enteredText!) {
                         println("teisingai!")
                         GameController.sharedInstance.stageProgress++
                         currentLevelCount++
@@ -69,7 +69,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
     }
  
     func showPuzzle() {
-        if let level = OpticalIllusionPuzzle.fromRaw(currentLevelCount) {
+        if let level = OpticalIllusionPuzzle(rawValue: currentLevelCount) {
             let imgName = level.fileName
             println("imgName = \(imgName)")
             myImageView.image = UIImage(named: imgName);

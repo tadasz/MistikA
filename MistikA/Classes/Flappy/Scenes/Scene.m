@@ -90,7 +90,7 @@ static bool wasted = NO;
     totalScoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica-Bold"];
     totalScoreLabel.text = [NSString stringWithFormat:@"Liko... %ld",(long)(kTotalScoreLimit - ([Score totalScore] + self.score))];
     totalScoreLabel.fontSize = 50;
-    totalScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame));
+    totalScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame) - 100);
     [self addChild:totalScoreLabel];
 
 }

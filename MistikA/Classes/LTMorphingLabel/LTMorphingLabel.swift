@@ -108,8 +108,7 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
 
 // MARK: - LTMorphingLabel
 public class LTMorphingLabel: UILabel {
-
-    //
+    
     public var morphingProgress: Float = 0.0
     public var morphingDuration: Float = 0.6
     public var morphingCharacterDelay: Float = 0.026
@@ -138,15 +137,15 @@ public class LTMorphingLabel: UILabel {
         return super.text
     }
     set {
-        _originText = text
+        _originText = text ?? ""
         _diffResults = _originText >> newValue
-        super.text = newValue
-        _originRects = rectsOfEachCharacter(_originText, withFont: self.font)
-        _newRects = rectsOfEachCharacter(newValue, withFont: self.font)
+        super.text = newValue ?? ""
         
         morphingProgress = 0.0
         _currentFrame = 0
         _totalFrames = 0
+        
+        self.setNeedsLayout()
         
         if _originText != text {
             displayLink.paused = false
@@ -161,10 +160,36 @@ public class LTMorphingLabel: UILabel {
     }
     }
     
+    public override func setNeedsLayout() {
+        super.setNeedsLayout()
+        _originRects = rectsOfEachCharacter(_originText, withFont: self.font)
+        _newRects = rectsOfEachCharacter(self.text ?? "", withFont: self.font)
+    }
+    
+    override public var bounds:CGRect {
+    get {
+        return super.bounds
+    }
+    set {
+        super.bounds = newValue
+        self.setNeedsLayout()
+    }
+    }
+    
+    override public var frame:CGRect {
+    get {
+        return super.frame
+    }
+    set {
+        super.frame = newValue
+        self.setNeedsLayout()
+    }
+    }
+    
     private lazy var displayLink: CADisplayLink = {
         let _displayLink = CADisplayLink(
             target: self,
-            selector: Selector.convertFromStringLiteral("_displayFrameTick"))
+            selector: Selector("_displayFrameTick"))
         _displayLink.addToRunLoop(
             NSRunLoop.currentRunLoop(),
             forMode: NSRunLoopCommonModes)
@@ -179,7 +204,6 @@ public class LTMorphingLabel: UILabel {
 }
 
 // MARK: - Animation extension
-
 extension LTMorphingLabel {
     
     func _displayFrameTick() {
@@ -214,15 +238,13 @@ extension LTMorphingLabel {
             }
         }
     }
-   
-
-
+    
     // Could be enhanced by kerning text:
     // http://stackoverflow.com/questions/21443625/core-text-calculate-letter-frame-in-ios
     func rectsOfEachCharacter(textToDraw:String, withFont font:UIFont) -> Array<CGRect> {
         var charRects = Array<CGRect>()
         var leftOffset: CGFloat = 0.0
-        
+
         if _charHeight == 0.0 {
             _charHeight = "LEX".sizeWithAttributes([NSFontAttributeName: self.font]).height
         }
@@ -246,7 +268,7 @@ extension LTMorphingLabel {
         default:
             ()
         }
-       
+        
         var offsetedCharRects = Array<CGRect>()
         
         for r in charRects {
@@ -375,6 +397,7 @@ extension LTMorphingLabel {
     }
 }
 
+
 // MARK: - Drawing extension
 extension LTMorphingLabel {
     override public func didMoveToSuperview() {
@@ -428,7 +451,7 @@ struct LTEmitter {
         }()
     
     let cell: CAEmitterCell = {
-        let image = UIImage(named:"Sparkle").CGImage
+        let image = UIImage(named:"Sparkle")!.CGImage
         let _cell = CAEmitterCell()
         _cell.name = "sparkle"
         _cell.birthRate = 150.0
@@ -468,7 +491,7 @@ struct LTEmitter {
     }
     
     func stop() {
-        if layer.superlayer {
+        if (nil != layer.superlayer) {
             layer.removeFromSuperlayer()
         }
     }
@@ -479,9 +502,12 @@ struct LTEmitter {
         }
         return self
     }
+    
 }
 
+
 typealias LTEmitterConfigureClosure = (CAEmitterLayer, CAEmitterCell) -> Void
+
 
 class LTEmitterView: UIView {
     

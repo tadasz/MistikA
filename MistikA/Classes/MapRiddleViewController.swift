@@ -35,7 +35,7 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
     }
     }
     
-    override init(coder aDecoder: NSCoder!) {
+    override init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -78,7 +78,7 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
     func showPuzzle() {
         let count: Int = MapPuzzle.allValues.count
         if  count > currentLevelCount {
-            if let level = MapPuzzle.fromRaw(currentLevelCount) {
+            if let level = MapPuzzle(rawValue: currentLevelCount) {
                 riddleImageView!.image = UIImage(named: level.fileName)
             }
         }
@@ -88,8 +88,8 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
 
     @IBAction func checkAnswer(sender: AnyObject) {
         
-        if let level = MapPuzzle.fromRaw(currentLevelCount) {
-            println("level - \(level.toRaw()), answers = \(level.answers)")
+        if let level = MapPuzzle(rawValue:currentLevelCount) {
+            println("level - \(level.rawValue), answers = \(level.answers)")
             if level.isCorrectAnswer(answerTextField.text) {
                 println("teisingai!")
                 GameController.sharedInstance.stageProgress++                
@@ -100,8 +100,7 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
                 println("neteisingai!")
                 playSoundWrong()
             }
-        }
-        else {
+        } else {
             println("pabaiga!")
             GameController.sharedInstance.finishedLevel()
 //            currentLevelCount = 0

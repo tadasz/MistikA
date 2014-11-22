@@ -31,7 +31,7 @@ class StarEmitterView: UIView {
             stars.lifetime = 10
             stars.lifetimeRange = 0.5
             stars.color = UIColor.whiteColor().CGColor
-            stars.contents = UIImage(named: "particle.png").CGImage
+            stars.contents = UIImage(named: "particle.png")!.CGImage
             stars.velocityRange = 300
             stars.emissionRange = 360
             stars.scale = 0.2

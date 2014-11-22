@@ -9,9 +9,9 @@
 import Foundation
 
 enum GameStage: Int {
-    case MapPuzzle = 0, OpticalIllusionPuzzle, FlappyPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle
+    case MapPuzzle = 0, FlappyPuzzle, OpticalIllusionPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle, TimerPuzzle
     
-    static var allPuzzles = [MapPuzzle, OpticalIllusionPuzzle, FlappyPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle]
+    static var allPuzzles = [MapPuzzle, FlappyPuzzle, OpticalIllusionPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle, TimerPuzzle]
 }
 
 let CURRENT_GAME_STAGE_KEY = "currentGameStage"
@@ -36,7 +36,7 @@ class GameController: NSObject {
     
     var currentGameStage: GameStage = GameStage.MapPuzzle {
     didSet {
-        NSUserDefaults.standardUserDefaults().setObject(currentGameStage.toRaw(), forKey: CURRENT_GAME_STAGE_KEY)
+        NSUserDefaults.standardUserDefaults().setObject(currentGameStage.rawValue, forKey: CURRENT_GAME_STAGE_KEY)
     }
     }
     
@@ -49,10 +49,10 @@ class GameController: NSObject {
     func loadInitialValues() {
         let stageRaw: Int? = NSUserDefaults.standardUserDefaults().objectForKey(CURRENT_GAME_STAGE_KEY) as Int?
         if  stageRaw != nil {
-            currentGameStage = GameStage.fromRaw(stageRaw!)!
+            currentGameStage = GameStage(rawValue: stageRaw!)!
         }
         else {
-            currentGameStage = GameStage.fromRaw(0)!
+            currentGameStage = GameStage(rawValue: 0)!
         }
         
         let stageProgressInMemory: Int? = NSUserDefaults.standardUserDefaults().objectForKey(STAGE_PROGRESS_KEY) as Int?
@@ -66,7 +66,7 @@ class GameController: NSObject {
     }
     
     func finishedLevel() {
-        currentGameStage = GameStage.fromRaw((currentGameStage.toRaw() + 1))!
+        currentGameStage = GameStage(rawValue: (currentGameStage.rawValue + 1))!
         stageProgress = 0
     }
 }

@@ -77,14 +77,15 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
         
 
         
-        if j == 2 {
+        if j == 1 {
             registerForBeacon()
         }
         
     }
     
     let beaconIdentifier = "com.tadas.mistika.beikonas"
-    var uuid: NSUUID = NSUUID(UUIDString: "78E408FD-48DA-4325-9123-0AEA40925EFF")
+    var uuid: NSUUID = NSUUID(UUIDString: "78E408FD-48DA-4325-9123-0AEA40925EFF")!
+    //NSUUID(string: "78E408FD-48DA-4325-9123-0AEA40925EFF")
     var major: NSNumber?
     var minor: NSNumber?
     var monitoredRegion: CLBeaconRegion?
@@ -98,7 +99,7 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
         }
         
         
-        var region = locationManager.monitoredRegions.member(monitoredRegion) as? CLBeaconRegion
+        var region = locationManager.monitoredRegions.member(monitoredRegion!) as? CLBeaconRegion
         if region == nil
 //        {
 ////            self.enabled = YES;
@@ -187,9 +188,6 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
         else {
             super.alertView(alertView, didDismissWithButtonIndex: buttonIndex)
         }
-        
-        
-
     }
 }
 

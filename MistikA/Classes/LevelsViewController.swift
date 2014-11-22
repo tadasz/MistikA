@@ -13,7 +13,7 @@ class LevelsViewController: UIViewController, LevelCollectionViewControllerDeleg
     @IBOutlet weak var imageView: UIImageView?
     var collectionView: LevelCollectionViewController?
     
-    required init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder)  {
         super.init(coder: aDecoder)
     }
     
@@ -62,8 +62,12 @@ class LevelsViewController: UIViewController, LevelCollectionViewControllerDeleg
             performSegueWithIdentifier("showIlusions_segue", sender: self)
         case 3:
             performSegueWithIdentifier("showStereogram_segue", sender: self)
-        case 5:
+        case 4:
             performSegueWithIdentifier("showFirstLevel_segue", sender: self)
+        case 5:
+            performSegueWithIdentifier("showTimerView", sender: self)
+        case 6:
+            performSegueWithIdentifier("showTimerView", sender: self)
         default:
             println("other level")
         }
@@ -74,11 +78,11 @@ class LevelsViewController: UIViewController, LevelCollectionViewControllerDeleg
     // #pragma mark - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue!.identifier == "embededLevelCollection_segue" {
-            collectionView = segue!.destinationViewController as? LevelCollectionViewController
+        if segue.identifier == "embededLevelCollection_segue" {
+            collectionView = segue.destinationViewController as? LevelCollectionViewController
             collectionView!.delegate = self
         }
     }

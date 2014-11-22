@@ -35,7 +35,7 @@
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
-    [Score resetTotalScore];
+//    [Score resetTotalScore];
     
 	// Configure the view.
     //self.gameView.showsFPS = YES;
@@ -78,6 +78,9 @@
     UIButton *button = [[UIButton alloc] initWithFrame:self.view.frame];
     [button addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    //check if level is updated
+    
 }
 
 - (void)swiped:(id)object {

@@ -14,7 +14,7 @@ class StereoIllusionViewController: BaseViewController {
     
     var currentLevelCount = GameController.sharedInstance.stageProgress
     
-    override init(coder aDecoder: NSCoder!) {
+    override init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -46,10 +46,10 @@ class StereoIllusionViewController: BaseViewController {
     func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
         if alertView.tag == 6554 {
             if buttonIndex == 0 {
-                let enteredText = alertView.textFieldAtIndex(0).text
+                let enteredText = alertView.textFieldAtIndex(0)?.text
                 
-                if let level = StereoIllusionPuzzle.fromRaw(currentLevelCount) {
-                    if level.isCorrectAnswer(enteredText) {
+                if let level = StereoIllusionPuzzle(rawValue: currentLevelCount) {
+                    if level.isCorrectAnswer(enteredText!) {
                         println("teisingai!")
                         GameController.sharedInstance.stageProgress++
                         currentLevelCount++
@@ -65,7 +65,7 @@ class StereoIllusionViewController: BaseViewController {
     }
     
     func showPuzzle() {
-        if let level = StereoIllusionPuzzle.fromRaw(currentLevelCount) {
+        if let level = StereoIllusionPuzzle(rawValue: currentLevelCount) {
             let imgName = level.fileName
             println("imgName = \(imgName)")
             myImageView.image = UIImage(named: imgName);

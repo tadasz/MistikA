@@ -65,14 +65,14 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
     }
     
     //MARK: - Sounds
-    var player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrong1", ofType: "mp3")), fileTypeHint: "mp3", error: nil)
+    var player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrong1", ofType: "mp3")!), fileTypeHint: "mp3", error: nil)
     
     func playSoundWrong() {
         if player.playing {
             player.stop()
         }
         var fileName: String = "wrong\(arc4random_uniform(18) + 1)"
-        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")), fileTypeHint: "mp3", error: nil)
+        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")!), fileTypeHint: "mp3", error: nil)
         player.play()
     }
     
@@ -82,7 +82,7 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
         }
         
         var fileName: String = "mistika"
-        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "wav")), fileTypeHint: "wav", error: nil)
+        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "wav")!), fileTypeHint: "wav", error: nil)
         player.numberOfLoops = -1
         player.play()
     }

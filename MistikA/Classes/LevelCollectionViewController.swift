@@ -63,21 +63,21 @@ class LevelCollectionViewController: UICollectionViewController {
 
 
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
-        return GameController.sharedInstance.currentGameStage.toRaw() + 1
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return GameController.sharedInstance.currentGameStage.rawValue + 1
     }
 
-    override func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as ChooseLevelCell
     
         cell.backgroundColor = UIColor.clearColor()
         
-        switch indexPath!.row {
+        switch indexPath.row {
         case 0:
             cell.imageView!.image = UIImage(named: "compass")
         case 1:
@@ -102,8 +102,8 @@ class LevelCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
-        delegate?.levelChoosen(indexPath!.row)
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegate?.levelChoosen(indexPath.row)
     }
 
     // pragma mark <UICollectionViewDelegate>

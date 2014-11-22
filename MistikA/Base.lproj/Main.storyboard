@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="war-cP-XdL">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <scenes>
@@ -203,6 +204,7 @@
                         <segue destination="20v-1T-Ri2" kind="modal" identifier="show_MapRiddle" modalTransitionStyle="crossDissolve" id="cba-g4-oux"/>
                         <segue destination="Ans-i6-8dn" kind="modal" identifier="showIlusions_segue" modalTransitionStyle="crossDissolve" id="xAe-oZ-WL5"/>
                         <segue destination="FY9-gd-1A9" kind="modal" identifier="showStereogram_segue" id="sUD-M1-lU4"/>
+                        <segue destination="dSM-6O-pjv" kind="modal" identifier="showTimerView" modalTransitionStyle="crossDissolve" id="kOc-oY-aYz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTs-n4-CA7" sceneMemberID="firstResponder"/>
@@ -463,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIB-K5-RIq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-616" y="2100"/>
+            <point key="canvasLocation" x="-640" y="2082"/>
         </scene>
         <!--Stereo Illusion View Controller-->
         <scene sceneID="MNL-Ry-RYm">
@@ -477,10 +479,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4L-Y9-h3X">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K4L-Y9-h3X">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krP-xs-hOc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krP-xs-hOc">
                                 <rect key="frame" x="252" y="20" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="Jar-PJ-ykj"/>
@@ -512,6 +514,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zSi-1t-dj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="78" y="2100"/>
+        </scene>
+        <!--Countdown View Controller-->
+        <scene sceneID="cfk-PG-M8g">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="dSM-6O-pjv" customClass="CountdownViewController" customModule="MistikA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sDM-pd-gkU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wwp-Ye-gZm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UhZ-1v-iha">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" restorationIdentifier="wallper" image="wallpaper.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6hh-XO-23n">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" restorationIdentifier="startEmitter" translatesAutoresizingMaskIntoConstraints="NO" id="6LZ-0S-RKx" customClass="StarEmitterView" customModule="MistikA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="239" width="320" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="V0x-ak-CF5"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="pirmasLbl" text="Ar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHM-o0-Qpp" customClass="LTMorphingLabel" customModule="MistikA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="225" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6hh-XO-23n" secondAttribute="trailing" id="11U-b6-wIT"/>
+                            <constraint firstItem="6hh-XO-23n" firstAttribute="top" secondItem="UhZ-1v-iha" secondAttribute="top" id="Amb-gd-m63"/>
+                            <constraint firstItem="6hh-XO-23n" firstAttribute="leading" secondItem="UhZ-1v-iha" secondAttribute="leading" id="HCv-Lr-rBj"/>
+                            <constraint firstItem="LHM-o0-Qpp" firstAttribute="leading" secondItem="UhZ-1v-iha" secondAttribute="leading" id="LRO-Zb-gHH"/>
+                            <constraint firstItem="6LZ-0S-RKx" firstAttribute="leading" secondItem="UhZ-1v-iha" secondAttribute="leading" id="Xpz-3w-tHL"/>
+                            <constraint firstAttribute="centerY" secondItem="6LZ-0S-RKx" secondAttribute="centerY" id="rss-nz-vrU"/>
+                            <constraint firstAttribute="trailing" secondItem="6LZ-0S-RKx" secondAttribute="trailing" id="sPG-vP-KHI"/>
+                            <constraint firstAttribute="bottom" secondItem="6hh-XO-23n" secondAttribute="bottom" id="uAU-9r-vKz"/>
+                            <constraint firstAttribute="centerY" secondItem="LHM-o0-Qpp" secondAttribute="centerY" id="vmJ-Tt-Xz4"/>
+                            <constraint firstAttribute="trailing" secondItem="LHM-o0-Qpp" secondAttribute="trailing" id="w3E-Kg-I2K"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NdX-sl-Ow6"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="textLabel" destination="LHM-o0-Qpp" id="8lc-cS-yDX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JTO-b6-ohR" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-632" y="1232"/>
         </scene>
     </scenes>
     <resources>
