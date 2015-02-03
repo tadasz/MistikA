@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E15356C1A20D9030073F149 /* laugh.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3E15356B1A20D9030073F149 /* laugh.aiff */; };
+		3E15356E1A2324EF0073F149 /* FinalPuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15356D1A2324EF0073F149 /* FinalPuzzleViewController.swift */; };
+		3E1535701A23274B0073F149 /* dream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3E15356F1A23274B0073F149 /* dream.mp3 */; };
+		3E1535771A232A7C0073F149 /* klau.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E1535721A232A7C0073F149 /* klau.jpg */; };
+		3E1535781A232A7C0073F149 /* rasa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E1535731A232A7C0073F149 /* rasa.jpg */; };
+		3E1535791A232A7C0073F149 /* sima.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E1535741A232A7C0073F149 /* sima.jpg */; };
+		3E15357A1A232A7C0073F149 /* tau.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E1535751A232A7C0073F149 /* tau.jpg */; };
+		3E15357B1A232A7C0073F149 /* turiu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E1535761A232A7C0073F149 /* turiu.jpg */; };
+		3E15357D1A23330C0073F149 /* final_win.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E15357C1A23330C0073F149 /* final_win.jpg */; };
 		3E2936511A207C2F0040D13F /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2936431A207C2F0040D13F /* LTEasing.swift */; };
 		3E2936521A207C2F0040D13F /* LTMorphingLabel+Anvil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2936441A207C2F0040D13F /* LTMorphingLabel+Anvil.swift */; };
 		3E2936531A207C2F0040D13F /* LTMorphingLabel+Burn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2936451A207C2F0040D13F /* LTMorphingLabel+Burn.swift */; };
@@ -143,6 +152,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E15356B1A20D9030073F149 /* laugh.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = laugh.aiff; sourceTree = "<group>"; };
+		3E15356D1A2324EF0073F149 /* FinalPuzzleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalPuzzleViewController.swift; sourceTree = "<group>"; };
+		3E15356F1A23274B0073F149 /* dream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dream.mp3; sourceTree = "<group>"; };
+		3E1535721A232A7C0073F149 /* klau.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = klau.jpg; sourceTree = "<group>"; };
+		3E1535731A232A7C0073F149 /* rasa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rasa.jpg; sourceTree = "<group>"; };
+		3E1535741A232A7C0073F149 /* sima.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sima.jpg; sourceTree = "<group>"; };
+		3E1535751A232A7C0073F149 /* tau.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tau.jpg; sourceTree = "<group>"; };
+		3E1535761A232A7C0073F149 /* turiu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turiu.jpg; sourceTree = "<group>"; };
+		3E15357C1A23330C0073F149 /* final_win.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = final_win.jpg; sourceTree = "<group>"; };
 		3E2936431A207C2F0040D13F /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEasing.swift; sourceTree = "<group>"; };
 		3E2936441A207C2F0040D13F /* LTMorphingLabel+Anvil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Anvil.swift"; sourceTree = "<group>"; };
 		3E2936451A207C2F0040D13F /* LTMorphingLabel+Burn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Burn.swift"; sourceTree = "<group>"; };
@@ -301,6 +319,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E1535711A232A7C0073F149 /* finalPuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				3E1535721A232A7C0073F149 /* klau.jpg */,
+				3E1535731A232A7C0073F149 /* rasa.jpg */,
+				3E1535741A232A7C0073F149 /* sima.jpg */,
+				3E1535751A232A7C0073F149 /* tau.jpg */,
+				3E1535761A232A7C0073F149 /* turiu.jpg */,
+			);
+			path = finalPuzzle;
+			sourceTree = "<group>";
+		};
 		3E2936421A207C2F0040D13F /* LTMorphingLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +398,8 @@
 		3E5ECA3D199A96BB00B58A65 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				3E15356F1A23274B0073F149 /* dream.mp3 */,
+				3E15356B1A20D9030073F149 /* laugh.aiff */,
 				3E5ECA3E199A96CC00B58A65 /* mistika.wav */,
 				3E9C4F66198AB3FC000AF68C /* wrong_sounds */,
 			);
@@ -460,6 +492,7 @@
 				3E9C4EFA198AB3ED000AF68C /* PuzzleEnum.swift */,
 				3E9C4EFB198AB3ED000AF68C /* StarEmitterView.swift */,
 				3EE6041819A225AB0072EA00 /* CountdownViewController.swift */,
+				3E15356D1A2324EF0073F149 /* FinalPuzzleViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -585,6 +618,8 @@
 		3E9C4FA0198AB403000AF68C /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				3E15357C1A23330C0073F149 /* final_win.jpg */,
+				3E1535711A232A7C0073F149 /* finalPuzzle */,
 				3E9C4ECF198AB3ED000AF68C /* church.png */,
 				3E9C4F5C198AB3FC000AF68C /* master_criminal_achievement.png */,
 				3E9C4F62198AB3FC000AF68C /* particle.png */,
@@ -686,6 +721,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E15357A1A232A7C0073F149 /* tau.jpg in Resources */,
 				3E9C4F97198AB3FC000AF68C /* wrong18.mp3 in Resources */,
 				3E9C4F29198AB3ED000AF68C /* pipe_bottom@2x.png in Resources */,
 				3E9C4F1D198AB3ED000AF68C /* back@2x.png in Resources */,
@@ -712,6 +748,7 @@
 				3E9C4F21198AB3ED000AF68C /* floor@2x.png in Resources */,
 				3E9C4F26198AB3ED000AF68C /* medal_plate@2x.png in Resources */,
 				3E5ECA35199A85D500B58A65 /* skull.jpg in Resources */,
+				3E1535791A232A7C0073F149 /* sima.jpg in Resources */,
 				3E5ECA2D199A85D500B58A65 /* flying_bird.jpg in Resources */,
 				3E9C4F1E198AB3ED000AF68C /* bird_1@2x.png in Resources */,
 				3E9C4F8B198AB3FC000AF68C /* question_block.png in Resources */,
@@ -735,6 +772,7 @@
 				3E9C4F1F198AB3ED000AF68C /* bird_2@2x.png in Resources */,
 				3E9C4F9E198AB3FC000AF68C /* wrong8.mp3 in Resources */,
 				3E5ECA34199A85D500B58A65 /* skateboard.jpg in Resources */,
+				3E1535771A232A7C0073F149 /* klau.jpg in Resources */,
 				3E9C4F38198AB3ED000AF68C /* epic_win2.jpeg in Resources */,
 				3E5ECA38199A85D500B58A65 /* vilkas.jpg in Resources */,
 				3E5ECA2E199A85D500B58A65 /* gorilla.jpg in Resources */,
@@ -743,7 +781,9 @@
 				3E9C4F36198AB3ED000AF68C /* compass.png in Resources */,
 				3E5ECA2A199A85D500B58A65 /* dolphins.jpg in Resources */,
 				3E9C4F37198AB3ED000AF68C /* devil.png in Resources */,
+				3E1535781A232A7C0073F149 /* rasa.jpg in Resources */,
 				3E9C4F22198AB3ED000AF68C /* game_over@2x.png in Resources */,
+				3E15356C1A20D9030073F149 /* laugh.aiff in Resources */,
 				3E9C4F98198AB3FC000AF68C /* wrong2.mp3 in Resources */,
 				3E9C4F9F198AB3FC000AF68C /* wrong9.mp3 in Resources */,
 				3E9C4F2A198AB3ED000AF68C /* pipe_top@2x.png in Resources */,
@@ -755,13 +795,16 @@
 				3E9C4F91198AB3FC000AF68C /* wrong12.mp3 in Resources */,
 				3E9C4F87198AB3FC000AF68C /* master_criminal_achievement.png in Resources */,
 				3E5ECA30199A85D500B58A65 /* infinity.jpg in Resources */,
+				3E15357B1A232A7C0073F149 /* turiu.jpg in Resources */,
 				3E9C4F41198AB3ED000AF68C /* illiusion14.jpg in Resources */,
 				3E9C4F15198AB3ED000AF68C /* church.png in Resources */,
+				3E1535701A23274B0073F149 /* dream.mp3 in Resources */,
 				3E9C4F43198AB3ED000AF68C /* illiusion3.jpg in Resources */,
 				3E29365D1A207C2F0040D13F /* Sparkle.png in Resources */,
 				3E9C4F8E198AB3FC000AF68C /* wrong1.mp3 in Resources */,
 				3E9C4F3F198AB3ED000AF68C /* illiusion12.jpg in Resources */,
 				3E9C4F28198AB3ED000AF68C /* medal_silver@2x.png in Resources */,
+				3E15357D1A23330C0073F149 /* final_win.jpg in Resources */,
 				3E5ECA3F199A96CC00B58A65 /* mistika.wav in Resources */,
 				3E5ECA2B199A85D500B58A65 /* drakonas.jpg in Resources */,
 				3E9C4F20198AB3ED000AF68C /* bird_3@2x.png in Resources */,
@@ -806,6 +849,7 @@
 				3E9C4F2D198AB3ED000AF68C /* Scene.m in Sources */,
 				3E9C4F30198AB3ED000AF68C /* LevelCollectionViewController.swift in Sources */,
 				3E9C4EB0198AB350000AF68C /* AppDelegate.swift in Sources */,
+				3E15356E1A2324EF0073F149 /* FinalPuzzleViewController.swift in Sources */,
 				3E2936561A207C2F0040D13F /* LTMorphingLabel+Pixelate.swift in Sources */,
 				3E9C4F33198AB3ED000AF68C /* OpticalIllusionViewController.swift in Sources */,
 				3E9C4F34198AB3ED000AF68C /* PuzzleEnum.swift in Sources */,

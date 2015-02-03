@@ -1,35 +1,27 @@
 //
-//  OpticalIllusionViewController.swift
+//  FinalPuzzleViewController.swift
 //  MistikA
 //
-//  Created by Tadas Ziemys on 23/07/14.
-//  Copyright (c) 2014 Tadas Ziemys. All rights reserved.
+//  Created by Tadas Ziemys on 24/11/14.
+//  Copyright (c) 2014 Tadas. All rights reserved.
 //
 
 import UIKit
+import AVFoundation
 
-class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
+class FinalPuzzleViewController: BaseViewController {
 
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var answerButton: UIButton!
     
     var currentLevelCount = GameController.sharedInstance.stageProgress
     
-    override init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        GameController.sharedInstance.stageProgress = 0
+        showPuzzle()
         // Do any additional setup after loading the view.
-        if GameController.sharedInstance.currentGameStage == GameStage.OpticalIllusionPuzzle {
-            showPuzzle()
-        }
-        else
-        {
-            finishStage()
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +30,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
     }
     
     @IBAction func tryAnswering(sender: AnyObject) {
-        let alert = UIAlertView(title: "ne viskas yra taip kaip atrodo", message: "parasyk ka matai (2 dalykai, 2 zodziai)", delegate: self, cancelButtonTitle: "OK")
+        let alert = UIAlertView(title: "mistika yra aplinkui", message: "pazvelk giliau ir atpazink realybe!", delegate: self, cancelButtonTitle: "OK")
         alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
         alert.tag = 6554
         alert.show()
@@ -49,7 +41,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
             if buttonIndex == 0 {
                 let enteredText = alertView.textFieldAtIndex(0)?.text
                 
-                if let level = OpticalIllusionPuzzle(rawValue: currentLevelCount) {
+                if let level = FinalPuzzle(rawValue: currentLevelCount) {
                     if level.isCorrectAnswer(enteredText!) {
                         println("teisingai!")
                         GameController.sharedInstance.stageProgress++
@@ -64,38 +56,38 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
             }
         }
     }
- 
+    
     func showPuzzle() {
-        if let level = OpticalIllusionPuzzle(rawValue: currentLevelCount) {
+        if let level = FinalPuzzle(rawValue: currentLevelCount) {
             let imgName = level.fileName
             println("imgName = \(imgName)")
             myImageView.image = UIImage(named: imgName);
         }
         else {
             println("pabaiga!")
-            GameController.sharedInstance.finishedLevel()
+//            GameController.sharedInstance.finishedLevel()
             finishStage()
         }
     }
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
     
     func finishStage() {
         answerButton.hidden = true
-        myImageView.image = UIImage(named: "somuchwin.jpg")
+        myImageView.image = UIImage(named: "final_win.jpg")
         myImageView.contentMode = UIViewContentMode.ScaleAspectFit
         
         let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
         button.frame = self.view.bounds
-        button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
+//        button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(button)
         
         playSoundWin()
@@ -104,4 +96,16 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
     func bringMeBack() {
         dismissViewControllerAnimated(true, completion: nil)
     }
+
+    override func playSoundWin() {
+        if player.playing {
+            player.stop()
+        }
+        
+        var fileName: String = "dream"
+        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")!), fileTypeHint: "mp3", error: nil)
+        player.numberOfLoops = -1
+        player.play()
+    }
+    
 }

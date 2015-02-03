@@ -20,5 +20,9 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Atiduok visas savo lokacijas!</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Atiduok visas savo lokacijas!</string>
 </dict>
 </plist>

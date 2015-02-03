@@ -67,7 +67,7 @@ class LevelsViewController: UIViewController, LevelCollectionViewControllerDeleg
         case 5:
             performSegueWithIdentifier("showTimerView", sender: self)
         case 6:
-            performSegueWithIdentifier("showTimerView", sender: self)
+            performSegueWithIdentifier("showFinalPuzzle_segue", sender: self)
         default:
             println("other level")
         }

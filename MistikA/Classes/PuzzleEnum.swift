@@ -331,3 +331,63 @@ extension MapPuzzle: PuzzleEnum {
         return false
     }
 }
+
+
+// MARK: - Final Puzzle
+
+enum FinalPuzzle: Int {
+    case Rasa = 0
+    case Turiu
+    case Tau
+    case Klau
+    case Sima
+    
+    static let allValues = [Rasa, Turiu, Tau, Klau, Sima]
+}
+
+extension FinalPuzzle: PuzzleEnum {
+    
+    var fileName: String {
+        get {
+            switch self {
+            case Rasa:
+                return "rasa.jpg"
+            case Turiu:
+                return "turiu.jpg"
+            case Tau:
+                return "tau.jpg"
+            case Klau:
+                return "klau.jpg"
+            case Sima:
+                return "sima.jpg"
+            }
+        }
+    }
+    
+    var answers: [String] {
+        get {
+            switch self {
+            case Rasa:
+                return ["rasa"]
+            case Turiu:
+                return ["turiu"]
+            case Tau:
+                return ["tau"]
+            case Klau:
+                return ["klau"]
+            case Sima:
+                return ["sima"]
+            }
+        }
+    }
+    
+    func isCorrectAnswer(answer: String) -> Bool {
+        for string in self.answers {
+            let compareResult =  string.compare(answer.lowercaseString, options: NSStringCompareOptions.DiacriticInsensitiveSearch, range: nil, locale: nil)
+            if compareResult == NSComparisonResult.OrderedSame {
+                return true
+            }
+        }
+        return false
+    }
+}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="war-cP-XdL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="war-cP-XdL">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Indoor Puzzle View Controller-->
@@ -205,6 +205,7 @@
                         <segue destination="Ans-i6-8dn" kind="modal" identifier="showIlusions_segue" modalTransitionStyle="crossDissolve" id="xAe-oZ-WL5"/>
                         <segue destination="FY9-gd-1A9" kind="modal" identifier="showStereogram_segue" id="sUD-M1-lU4"/>
                         <segue destination="dSM-6O-pjv" kind="modal" identifier="showTimerView" modalTransitionStyle="crossDissolve" id="kOc-oY-aYz"/>
+                        <segue destination="qcX-zH-JNO" kind="modal" identifier="showFinalPuzzle_segue" modalTransitionStyle="crossDissolve" id="ZTW-jN-zfC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTs-n4-CA7" sceneMemberID="firstResponder"/>
@@ -260,7 +261,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqz-dB-eNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1236" y="824"/>
+            <point key="canvasLocation" x="-1338" y="578"/>
         </scene>
         <!--Map Riddle View Controller-->
         <scene sceneID="45X-Zm-Mmd">
@@ -515,6 +516,57 @@
             </objects>
             <point key="canvasLocation" x="78" y="2100"/>
         </scene>
+        <!--Final Puzzle View Controller-->
+        <scene sceneID="470-WN-atN">
+            <objects>
+                <viewController id="qcX-zH-JNO" customClass="FinalPuzzleViewController" customModule="MistikA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FMc-tm-OWF"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gdg-Wh-X9O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HBl-M4-uP1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p8W-qO-ddE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4m-SB-mRp">
+                                <rect key="frame" x="256" y="20" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="3sJ-Zh-JCH"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="CL5-lB-SAj"/>
+                                    <constraint firstAttribute="width" constant="48" id="HID-CS-wfZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="RBW-O0-5oc"/>
+                                </constraints>
+                                <state key="normal" image="question_block.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tryAnswering:" destination="qcX-zH-JNO" eventType="touchUpInside" id="c60-tX-8H8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w4m-SB-mRp" firstAttribute="top" secondItem="FMc-tm-OWF" secondAttribute="bottom" constant="20" id="5aa-Zh-gZ8"/>
+                            <constraint firstItem="Gdg-Wh-X9O" firstAttribute="top" secondItem="p8W-qO-ddE" secondAttribute="bottom" id="8bD-Su-BE8"/>
+                            <constraint firstAttribute="trailing" secondItem="p8W-qO-ddE" secondAttribute="trailing" id="GdA-9q-mwZ"/>
+                            <constraint firstItem="p8W-qO-ddE" firstAttribute="leading" secondItem="HBl-M4-uP1" secondAttribute="leading" id="Zqj-ch-9ht"/>
+                            <constraint firstAttribute="trailing" secondItem="w4m-SB-mRp" secondAttribute="trailing" constant="16" id="lrN-Ib-q5E"/>
+                            <constraint firstItem="p8W-qO-ddE" firstAttribute="top" secondItem="FMc-tm-OWF" secondAttribute="bottom" id="mjF-9s-jQF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ctD-HL-DN2"/>
+                    <connections>
+                        <outlet property="answerButton" destination="w4m-SB-mRp" id="ab3-KC-hgj"/>
+                        <outlet property="myImageView" destination="p8W-qO-ddE" id="Xgg-ge-f2I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkY-ee-1lY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1144" y="1218"/>
+        </scene>
         <!--Countdown View Controller-->
         <scene sceneID="cfk-PG-M8g">
             <objects>
@@ -537,7 +589,7 @@
                                     <constraint firstAttribute="height" constant="1" id="V0x-ak-CF5"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="pirmasLbl" text="Ar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHM-o0-Qpp" customClass="LTMorphingLabel" customModule="MistikA" customModuleProvider="target">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="pirmasLbl" text="................" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHM-o0-Qpp" customClass="LTMorphingLabel" customModule="MistikA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="225" width="320" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -579,9 +631,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination">
-            <size key="portraitSize" width="320" height="480"/>
-            <size key="landscapeSize" width="480" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

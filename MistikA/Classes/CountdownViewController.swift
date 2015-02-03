@@ -23,11 +23,23 @@ class CountdownViewController: BaseViewController {
         dateFormater.dateFormat = ("dd:MM:yyyy HH:mm:ss")
         
         
-        var date = dateFormater.dateFromString("13:09:2014 21:21:21")
+        var date = dateFormater.dateFromString("28:11:2014 19:36:36")
         let now = NSDate()
         var timeLeft = date!.timeIntervalSinceDate(now)
         
-        textLabel?.text = "\(timeLeft)"
+        if timeLeft < 0 {
+            textLabel?.text = "Išaušo mistinė valanda..."
+            timer?.invalidate()
+            timer = nil
+            
+            GameController.sharedInstance.currentGameStage = GameStage.FinalPuzzle
+            finishStage()
+        } else {
+            textLabel?.text = "\(timeLeft)"
+        }
+        
+        
+    
         
 //        println("time left: \(timeLeft)")
     }
@@ -37,9 +49,10 @@ class CountdownViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
         
 //        timer = NSTimer(timeInterval: 1.0, target: nil, selector: "updateTimer", userInfo: nil, repeats: true)
+        
 
     }
 
@@ -49,6 +62,19 @@ class CountdownViewController: BaseViewController {
     }
     
 
+    func finishStage() {
+        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        button.frame = self.view.bounds
+        button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(button)
+        
+        playSoundWin()
+    }
+    
+    func bringMeBack() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

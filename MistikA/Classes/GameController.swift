@@ -9,9 +9,9 @@
 import Foundation
 
 enum GameStage: Int {
-    case MapPuzzle = 0, FlappyPuzzle, OpticalIllusionPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle, TimerPuzzle
+    case MapPuzzle = 0, FlappyPuzzle, OpticalIllusionPuzzle, StereogramPuzzle, LocationPuzzle, TimerPuzzle, FinalPuzzle
     
-    static var allPuzzles = [MapPuzzle, FlappyPuzzle, OpticalIllusionPuzzle, StereogramPuzzle, IndoorPuzzle, RestaurantPuzzle, TimerPuzzle]
+    static var allPuzzles = [MapPuzzle, FlappyPuzzle, OpticalIllusionPuzzle, StereogramPuzzle, LocationPuzzle, TimerPuzzle, FinalPuzzle]
 }
 
 let CURRENT_GAME_STAGE_KEY = "currentGameStage"
@@ -37,12 +37,14 @@ class GameController: NSObject {
     var currentGameStage: GameStage = GameStage.MapPuzzle {
     didSet {
         NSUserDefaults.standardUserDefaults().setObject(currentGameStage.rawValue, forKey: CURRENT_GAME_STAGE_KEY)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     }
     
     var stageProgress: Int = 0 {
     didSet {
         NSUserDefaults.standardUserDefaults().setObject(stageProgress, forKey: STAGE_PROGRESS_KEY)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     }
     
