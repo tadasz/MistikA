@@ -56,7 +56,7 @@ class LevelsViewController: UIViewController, LevelCollectionViewControllerDeleg
             performSegueWithIdentifier("show_MapRiddle", sender: self)
         case 1:
             let flappyStoryboard = UIStoryboard(name: "FlappyMain", bundle: nil)
-            let flappyViewController = flappyStoryboard.instantiateInitialViewController() as FlappyViewController
+            let flappyViewController = flappyStoryboard.instantiateInitialViewController() as! FlappyViewController
             self.presentViewController(flappyViewController, animated: true, completion: nil)
         case 2:
             performSegueWithIdentifier("showIlusions_segue", sender: self)

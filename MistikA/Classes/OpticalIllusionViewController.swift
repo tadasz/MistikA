@@ -15,7 +15,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
     
     var currentLevelCount = GameController.sharedInstance.stageProgress
     
-    override init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -44,7 +44,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
         alert.show()
     }
     
-    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if alertView.tag == 6554 {
             if buttonIndex == 0 {
                 let enteredText = alertView.textFieldAtIndex(0)?.text
@@ -93,7 +93,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
         myImageView.image = UIImage(named: "somuchwin.jpg")
         myImageView.contentMode = UIViewContentMode.ScaleAspectFit
         
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         button.frame = self.view.bounds
         button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(button)

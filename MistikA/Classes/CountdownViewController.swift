@@ -12,7 +12,7 @@ class CountdownViewController: BaseViewController {
 
     @IBOutlet weak var textLabel: LTMorphingLabel?
     
-    override init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -63,7 +63,7 @@ class CountdownViewController: BaseViewController {
     
 
     func finishStage() {
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         button.frame = self.view.bounds
         button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(button)

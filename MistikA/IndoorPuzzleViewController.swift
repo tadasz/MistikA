@@ -59,7 +59,7 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
 
     @IBAction func performAction(sender: AnyObject)
     {
-        if countElements(texts) <= i {
+        if count(texts) <= i {
             i = 0
             j++
         }
@@ -84,7 +84,7 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
     
     @IBAction func performSecondAction(sender: AnyObject) {
 
-        if countElements(secondTexts) <= i {
+        if count(secondTexts) <= i {
             i = 0
             j++
         }
@@ -101,7 +101,7 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
     
     
     func registerForSantiago() {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         appDelegate.locationManager.startMonitoringForRegion(regionSantiago)
         appDelegate.locationManager.startMonitoringForRegion(regionMadrid)

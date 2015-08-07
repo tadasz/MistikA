@@ -27,21 +27,21 @@ class LevelCollectionViewController: UICollectionViewController {
 
         // Register cell classes
 //        self.collectionView.registerClass(ChooseLevelCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView.registerNib(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerNib(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         // Do any additional setup after loading the view.
         
         var flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSizeMake(125, 125)
         flowLayout.scrollDirection = UICollectionViewScrollDirection.Vertical
         
-        self.collectionView.collectionViewLayout = flowLayout
+        self.collectionView!.collectionViewLayout = flowLayout
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        collectionView.reloadData()
+        collectionView!.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +73,7 @@ class LevelCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as ChooseLevelCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ChooseLevelCell
     
         cell.backgroundColor = UIColor.clearColor()
         

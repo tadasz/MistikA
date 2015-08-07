@@ -53,7 +53,7 @@ class FindPalepeViewController: UIViewController, CLLocationManagerDelegate {
     */
     func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
         if !beacons!.isEmpty {
-            var beacon = beacons![0] as CLBeacon
+            var beacon = beacons![0] as! CLBeacon
             let accuracy: Double = beacon.accuracy
             pictureView!.alpha = CGFloat(1.0 / accuracy)
             accuracyLabel!.text = "\(beacon.accuracy)"

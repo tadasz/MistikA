@@ -35,7 +35,7 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
     }
     }
     
-    override init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -146,7 +146,7 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
     
     // MARK: - UITextField
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         checkAnswer(0)
         return true
     }

@@ -48,15 +48,15 @@ extension OpticalIllusionPuzzle: PuzzleEnum {
         get {
             switch self {
             case .Kareivis:
-                return ["kareivis", "veidas", "mociute", "boba", "sikna"]
+                return ["kareivis", "veidas", "mociute", "boba", "sikna", "subine", "uzpakalis"]
             case .Delfinai:
-                return ["porele", "seksas", "delfinai", "delfinas"]
+                return ["porele", "seksas", "delfinai", "delfinas", "pora"]
             case .Asilas:
                 return ["asilas", "ruonis"]
             case .Fermeris:
-                return ["fermeris", "moteris", "zmona"]
+                return ["fermeris", "moteris", "zmona", "vyras", "wife", "farmer"]
             case .Vovere:
-                return ["vovere", "antis"]
+                return ["vovere", "antis", "triusis", "gulbe"]
             case .Geles:
                 return ["moteris", "geles", "gele"]
             case .Arklys:
@@ -72,7 +72,7 @@ extension OpticalIllusionPuzzle: PuzzleEnum {
             case .Meska:
                 return ["meska", "ruonis"]
             case .Antis:
-                return ["antis", "kiskis", "zuikis"]
+                return ["antis", "kiskis", "zuikis", "triusis"]
             case .Kiskis:
                 return ["kiskis", "zuikis", "anciukas", "antis"]
             default:
@@ -299,13 +299,13 @@ extension MapPuzzle: PuzzleEnum {
         case Aleksotas:
             return ["tado tevai","tevai","aleksotas"]
         case Alkoholikai:
-            return ["alkoholikai", "klubas sala", "pirmas musu butas", "alkoholiku butas"]
+            return ["alkoholikai", "klubas sala", "pirmas musu butas", "alkoholiku butas", "dauksos", "pilis"]
         case Bendrabutis:
             return ["bendrabutis", "bendrikas", "sajungos", "sąjungos aikštė", "barakas"]
         case Botanikos:
             return ["botanikos", "botanikos sodas", "botanika"]
         case Dobuzinskio:
-            return ["dobuzinskio", "dobužinskio", "udros namai"]
+            return ["dobuzinskio", "laisves aleja", "gedimino", "dobužinskio", "udros namai"]
         case Gedimino:
             return ["gedimino", "soburas", "laisve"]
         case Sala:
@@ -317,7 +317,7 @@ extension MapPuzzle: PuzzleEnum {
         case Silainiai:
             return ["silainiai", "silainiu ziedas", "šilainiai"]
         case Zoo:
-            return ["zoo", "zoologijos sodas", "zoologijos"]
+            return ["zoo", "zoologijos sodas", "zoologijos", "gyvunai"]
         }
     }
     }

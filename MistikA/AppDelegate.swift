@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var window: UIWindow?
     var locationManager: CLLocationManager = CLLocationManager()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        // Override point for customization after application launch.
-    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        
+//        GameController.sharedInstance.currentGameStage = .OpticalIllusionPuzzle
         
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         
@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     //Notifications
     
     var soundPlayer: AVAudioPlayer?
-    func application(application: UIApplication!, didReceiveLocalNotification notification: UILocalNotification!) {
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         var error: NSError?
         var url = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("laugh", ofType: "aiff")!)
         soundPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)

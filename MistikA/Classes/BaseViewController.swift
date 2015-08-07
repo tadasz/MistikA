@@ -53,7 +53,7 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
         alert.show()
     }
     
-    func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         
         if alertView.tag == 84756 {
             if buttonIndex == 1 {

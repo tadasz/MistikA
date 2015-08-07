@@ -14,7 +14,7 @@ class StereoIllusionViewController: BaseViewController {
     
     var currentLevelCount = GameController.sharedInstance.stageProgress
     
-    override init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -92,7 +92,7 @@ class StereoIllusionViewController: BaseViewController {
         myImageView.image = UIImage(named: "winnerisyou.jpg")
         myImageView.contentMode = UIViewContentMode.ScaleAspectFit
         
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         button.frame = self.view.bounds
         button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(button)

@@ -85,7 +85,7 @@ class FinalPuzzleViewController: BaseViewController {
         myImageView.image = UIImage(named: "final_win.jpg")
         myImageView.contentMode = UIViewContentMode.ScaleAspectFit
         
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         button.frame = self.view.bounds
 //        button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(button)

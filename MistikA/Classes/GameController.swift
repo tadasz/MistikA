@@ -49,7 +49,7 @@ class GameController: NSObject {
     }
     
     func loadInitialValues() {
-        let stageRaw: Int? = NSUserDefaults.standardUserDefaults().objectForKey(CURRENT_GAME_STAGE_KEY) as Int?
+        let stageRaw: Int? = NSUserDefaults.standardUserDefaults().objectForKey(CURRENT_GAME_STAGE_KEY) as! Int?
         if  stageRaw != nil {
             currentGameStage = GameStage(rawValue: stageRaw!)!
         }
@@ -57,7 +57,7 @@ class GameController: NSObject {
             currentGameStage = GameStage(rawValue: 0)!
         }
         
-        let stageProgressInMemory: Int? = NSUserDefaults.standardUserDefaults().objectForKey(STAGE_PROGRESS_KEY) as Int?
+        let stageProgressInMemory: Int? = NSUserDefaults.standardUserDefaults().objectForKey(STAGE_PROGRESS_KEY) as! Int?
         
         if stageProgressInMemory != nil {
             stageProgress = stageProgressInMemory!
