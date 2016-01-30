@@ -13,7 +13,7 @@ class LevelsViewController: UIViewController, LevelCollectionViewControllerDeleg
     @IBOutlet weak var imageView: UIImageView?
     var collectionView: LevelCollectionViewController?
     
-    required init(coder aDecoder: NSCoder)  {
+    required init?(coder aDecoder: NSCoder)  {
         super.init(coder: aDecoder)
     }
     
@@ -69,7 +69,7 @@ class LevelsViewController: UIViewController, LevelCollectionViewControllerDeleg
         case 6:
             performSegueWithIdentifier("showFinalPuzzle_segue", sender: self)
         default:
-            println("other level")
+            print("other level")
         }
 
     }

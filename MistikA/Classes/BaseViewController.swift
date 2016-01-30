@@ -18,7 +18,7 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
 
         // Do any additional setup after loading the view.
         
-        var gestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swiped:"))
+        let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swiped:"))
         gestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
         gestureRecognizer.delaysTouchesBegan = true
         view.addGestureRecognizer(gestureRecognizer)
@@ -32,7 +32,7 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)        
-        player.stop()
+        player!.stop()
     }
     
     /*
@@ -48,7 +48,7 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
     // MARK: - Go back
     
     func swiped(object: AnyObject) {
-        var alert = UIAlertView(title: "pasiduodi?", message: "o jeigu tai mistika...", delegate: self, cancelButtonTitle: "gal..", otherButtonTitles: "atgal")
+        let alert = UIAlertView(title: "pasiduodi?", message: "o jeigu tai mistika...", delegate: self, cancelButtonTitle: "gal..", otherButtonTitles: "atgal")
         alert.tag = conts_GoBack
         alert.show()
     }
@@ -65,26 +65,26 @@ class BaseViewController: UIViewController, UIAlertViewDelegate {
     }
     
     //MARK: - Sounds
-    var player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrong1", ofType: "mp3")!), fileTypeHint: "mp3", error: nil)
+    var player = try? AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrong1", ofType: "mp3")!), fileTypeHint: "mp3")
     
     func playSoundWrong() {
-        if player.playing {
-            player.stop()
+        if player!.playing {
+            player!.stop()
         }
-        var fileName: String = "wrong\(arc4random_uniform(18) + 1)"
-        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")!), fileTypeHint: "mp3", error: nil)
-        player.play()
+        let fileName: String = "wrong\(arc4random_uniform(18) + 1)"
+        player = try? AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")!), fileTypeHint: "mp3")
+        player!.play()
     }
     
     func playSoundWin() {
-        if player.playing {
-            player.stop()
+        if player!.playing {
+            player!.stop()
         }
         
-        var fileName: String = "mistika"
-        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "wav")!), fileTypeHint: "wav", error: nil)
-        player.numberOfLoops = -1
-        player.play()
+        let fileName: String = "mistika"
+        player = try? AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "wav")!), fileTypeHint: "wav")
+        player!.numberOfLoops = -1
+        player!.play()
     }
 
 }

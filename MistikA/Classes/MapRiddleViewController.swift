@@ -35,7 +35,7 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
     }
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -89,19 +89,19 @@ class MapRiddleViewController: BaseViewController, UITextFieldDelegate, LTMorphi
     @IBAction func checkAnswer(sender: AnyObject) {
         
         if let level = MapPuzzle(rawValue:currentLevelCount) {
-            println("level - \(level.rawValue), answers = \(level.answers)")
-            if level.isCorrectAnswer(answerTextField.text) {
-                println("teisingai!")
+            print("level - \(level.rawValue), answers = \(level.answers)")
+            if level.isCorrectAnswer(answerTextField.text!) {
+                print("teisingai!")
                 GameController.sharedInstance.stageProgress++                
                 currentLevelCount++
                 showPuzzle()
             }
             else {
-                println("neteisingai!")
+                print("neteisingai!")
                 playSoundWrong()
             }
         } else {
-            println("pabaiga!")
+            print("pabaiga!")
             GameController.sharedInstance.finishedLevel()
 //            currentLevelCount = 0
             finishStage()

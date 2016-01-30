@@ -43,13 +43,13 @@ class FinalPuzzleViewController: BaseViewController {
                 
                 if let level = FinalPuzzle(rawValue: currentLevelCount) {
                     if level.isCorrectAnswer(enteredText!) {
-                        println("teisingai!")
+                        print("teisingai!")
                         GameController.sharedInstance.stageProgress++
                         currentLevelCount++
                         showPuzzle()
                     }
                     else {
-                        println("neteisingai!")
+                        print("neteisingai!")
                         playSoundWrong()
                     }
                 }
@@ -60,11 +60,11 @@ class FinalPuzzleViewController: BaseViewController {
     func showPuzzle() {
         if let level = FinalPuzzle(rawValue: currentLevelCount) {
             let imgName = level.fileName
-            println("imgName = \(imgName)")
+            print("imgName = \(imgName)")
             myImageView.image = UIImage(named: imgName);
         }
         else {
-            println("pabaiga!")
+            print("pabaiga!")
 //            GameController.sharedInstance.finishedLevel()
             finishStage()
         }
@@ -85,7 +85,7 @@ class FinalPuzzleViewController: BaseViewController {
         myImageView.image = UIImage(named: "final_win.jpg")
         myImageView.contentMode = UIViewContentMode.ScaleAspectFit
         
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        let button: UIButton = UIButton(type: UIButtonType.Custom)
         button.frame = self.view.bounds
 //        button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(button)
@@ -98,14 +98,14 @@ class FinalPuzzleViewController: BaseViewController {
     }
 
     override func playSoundWin() {
-        if player.playing {
-            player.stop()
+        if player!.playing {
+            player!.stop()
         }
         
         var fileName: String = "dream"
-        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")!), fileTypeHint: "mp3", error: nil)
-        player.numberOfLoops = -1
-        player.play()
+        player = try? AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")!), fileTypeHint: "mp3")
+        player!.numberOfLoops = -1
+        player!.play()
     }
     
 }

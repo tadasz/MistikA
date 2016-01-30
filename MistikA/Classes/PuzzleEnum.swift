@@ -91,7 +91,7 @@ extension OpticalIllusionPuzzle: PuzzleEnum {
         
         for answerString in array {
             for string in self.answers {
-                println("string = \(string) answerString = \(answerString)")
+                print("string = \(string) answerString = \(answerString)")
                 let compareResult =  string.compare(answerString.lowercaseString, options: NSStringCompareOptions.DiacriticInsensitiveSearch, range: nil, locale: nil)
                 if compareResult == NSComparisonResult.OrderedSame {
                     correctWords++

@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate, UIAlertViewDelegate {
+class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate {
                             
     @IBOutlet weak var textLabel: LTMorphingLabel?
     @IBOutlet weak var secondTextLabel: LTMorphingLabel?
@@ -38,7 +38,7 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
         textLabel!.morphingEffect = LTMorphingEffect.Pixelate
         registerForSantiago()
         
-        var tapRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("tapped"))
+        let tapRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("tapped"))
         tapRecognizer.direction = UISwipeGestureRecognizerDirection.Down
         tapRecognizer.delaysTouchesBegan = true
         view.addGestureRecognizer(tapRecognizer)
@@ -59,12 +59,12 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
 
     @IBAction func performAction(sender: AnyObject)
     {
-        if count(texts) <= i {
+        if texts.count <= i {
             i = 0
             j++
         }
         
-        var text = texts[i++]
+        let text = texts[i++]
         textLabel!.text = text
         
         if j == 3 {
@@ -84,12 +84,12 @@ class IndoorPuzzleViewController: BaseViewController, CLLocationManagerDelegate,
     
     @IBAction func performSecondAction(sender: AnyObject) {
 
-        if count(secondTexts) <= i {
+        if secondTexts.count <= i {
             i = 0
             j++
         }
         
-        var text = secondTexts[i++]
+        let text = secondTexts[i++]
         secondTextLabel!.text = text
         
 

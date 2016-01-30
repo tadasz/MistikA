@@ -30,7 +30,7 @@ class LevelCollectionViewController: UICollectionViewController {
         self.collectionView!.registerNib(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         // Do any additional setup after loading the view.
         
-        var flowLayout = UICollectionViewFlowLayout()
+        let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSizeMake(125, 125)
         flowLayout.scrollDirection = UICollectionViewScrollDirection.Vertical
         
@@ -93,7 +93,7 @@ class LevelCollectionViewController: UICollectionViewController {
         case 6:
             cell.imageView!.image = UIImage(named: "church")
         default:
-            println("default")
+            print("default")
         }
         
 //        cell.imageView.text = "\(indexPath!.row + 1)"

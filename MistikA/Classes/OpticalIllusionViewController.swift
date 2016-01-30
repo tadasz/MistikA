@@ -8,14 +8,14 @@
 
 import UIKit
 
-class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
+class OpticalIllusionViewController: BaseViewController {
 
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var answerButton: UIButton!
     
     var currentLevelCount = GameController.sharedInstance.stageProgress
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -51,13 +51,13 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
                 
                 if let level = OpticalIllusionPuzzle(rawValue: currentLevelCount) {
                     if level.isCorrectAnswer(enteredText!) {
-                        println("teisingai!")
+                        print("teisingai!")
                         GameController.sharedInstance.stageProgress++
                         currentLevelCount++
                         showPuzzle()
                     }
                     else {
-                        println("neteisingai!")
+                        print("neteisingai!")
                         playSoundWrong()
                     }
                 }
@@ -68,11 +68,11 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
     func showPuzzle() {
         if let level = OpticalIllusionPuzzle(rawValue: currentLevelCount) {
             let imgName = level.fileName
-            println("imgName = \(imgName)")
+            print("imgName = \(imgName)")
             myImageView.image = UIImage(named: imgName);
         }
         else {
-            println("pabaiga!")
+            print("pabaiga!")
             GameController.sharedInstance.finishedLevel()
             finishStage()
         }
@@ -93,7 +93,7 @@ class OpticalIllusionViewController: BaseViewController, UIAlertViewDelegate {
         myImageView.image = UIImage(named: "somuchwin.jpg")
         myImageView.contentMode = UIViewContentMode.ScaleAspectFit
         
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        let button: UIButton = UIButton(type: UIButtonType.Custom)
         button.frame = self.view.bounds
         button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(button)

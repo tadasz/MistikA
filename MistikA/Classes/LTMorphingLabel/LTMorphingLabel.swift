@@ -37,7 +37,7 @@ let LTMorphingPhaseManipulateProgress = "ManipulateProgress"
 let LTMorphingPhaseSkipFrames = "SkipFrames"
 
 
-public enum LTMorphingEffect: Int, Printable {
+public enum LTMorphingEffect: Int, CustomStringConvertible {
     case Scale = 0
     case Evaporate
     case Fall
@@ -71,7 +71,7 @@ public enum LTMorphingEffect: Int, Printable {
 }
 
 
-struct LTCharacterLimbo: DebugPrintable {
+struct LTCharacterLimbo: CustomDebugStringConvertible {
     
     let char: Character
     var rect: CGRect
@@ -211,7 +211,7 @@ extension LTMorphingLabel {
             let frameRate = Float(displayLink.duration) / Float(displayLink.frameInterval)
             _totalFrames = Int(ceil(morphingDuration / frameRate))
             
-            let totalDelay = Float(count(self.text!)) * morphingCharacterDelay
+            let totalDelay = Float((self.text!).characters.count) * morphingCharacterDelay
             _totalDelayFrames = Int(ceil(totalDelay / frameRate))
         }
         
@@ -248,9 +248,9 @@ extension LTMorphingLabel {
         if _charHeight == 0.0 {
             _charHeight = "LEX".sizeWithAttributes([NSFontAttributeName: self.font]).height
         }
-        var topOffset = (self.bounds.size.height - _charHeight) / 2.0
+        let topOffset = (self.bounds.size.height - _charHeight) / 2.0
         
-        for (i, char) in enumerate(textToDraw) {
+        for (i, char) in textToDraw.characters.enumerate() {
             let charSize = String(char).sizeWithAttributes([NSFontAttributeName: self.font])
             charRects.append(CGRect(origin: CGPointMake(leftOffset, topOffset), size: charSize))
             leftOffset += charSize.width
@@ -324,7 +324,7 @@ extension LTMorphingLabel {
         index: Int,
         progress: Float) -> LTCharacterLimbo {
             
-            var currentRect = _newRects[index]
+            let currentRect = _newRects[index]
             var newX = Float(currentRect.origin.x)
             var currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0, Float(font.pointSize)))
             var currentAlpha:CGFloat = CGFloat(morphingProgress)
@@ -351,7 +351,7 @@ extension LTMorphingLabel {
         var limbo = Array<LTCharacterLimbo>()
         
         // Iterate original characters
-        for (i, character) in enumerate(_originText) {
+        for (i, character) in _originText.characters.enumerate() {
             var progress: Float = 0.0
             
             if let closure = _progressClosures["\(morphingEffect.description)\(LTMorphingPhaseManipulateProgress)"] {
@@ -365,8 +365,8 @@ extension LTMorphingLabel {
         }
         
         // Add new characters
-        for (i, character) in enumerate(text!) {
-            if i >= count(_diffResults) {
+        for (i, character) in (text!).characters.enumerate() {
+            if i >= _diffResults.count {
                 break
             }
             
@@ -416,7 +416,7 @@ extension LTMorphingLabel {
     
     override public func drawTextInRect(rect: CGRect) {
         for charLimbo in limboOfCharacters() {
-            var charRect:CGRect = charLimbo.rect
+            let charRect:CGRect = charLimbo.rect
             
             let willAvoidDefaultDrawing: Bool = {
                 if let closure = self._drawingClosures["\(self.morphingEffect.description)\(LTMorphingPhaseDraw)"] {

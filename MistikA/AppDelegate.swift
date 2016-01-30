@@ -25,7 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.delegate = self
         
         if locationManager.respondsToSelector(Selector("requestAlwaysAuthorization")) {
-            locationManager.requestAlwaysAuthorization()
+            if #available(iOS 8.0, *) {
+                locationManager.requestAlwaysAuthorization()
+            } else {
+                // Fallback on earlier versions
+            }
         }
         
 //        locationManager.startMonitoringForRegion(regionSenamiestis)
@@ -37,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 //        GameController.sharedInstance.currentGameStage = GameStage.LocationPuzzle
         
         
-        println("gameStage: \(GameController.sharedInstance.currentGameStage.rawValue)")
+        print("gameStage: \(GameController.sharedInstance.currentGameStage.rawValue)")
         
 //        if UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:")) {
 //            var settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: <#UIUserNotificationType#>, categories: <#NSSet?#>)
@@ -57,12 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 //    var regionSpace = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 54.9032619, longitude: 23.9599558), radius: 1000, identifier: "Space")
     
     
-    func locationManager(manager: CLLocationManager!, didDetermineState state: CLRegionState, forRegion region: CLRegion!) {
-        println("Something happened!")
-        println("state - \(state)")
-        println("region - \(region)")
+    func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
+        print("Something happened!")
+        print("state - \(state)")
+        print("region - \(region)")
         
-        var notification = UILocalNotification()
+        let notification = UILocalNotification()
         var regionStateStr = ""
         if (state == CLRegionState.Inside) {
             regionStateStr = "Inside"
@@ -94,11 +98,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var soundPlayer: AVAudioPlayer?
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         var error: NSError?
-        var url = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("laugh", ofType: "aiff")!)
-        soundPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
+        let url = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("laugh", ofType: "aiff")!)
+        do {
+            soundPlayer = try AVAudioPlayer(contentsOfURL: url)
+        } catch let error1 as NSError {
+            error = error1
+            soundPlayer = nil
+        }
         soundPlayer!.volume = 0
         if !soundPlayer!.play() {
-            println("negroja!!!")
+            print("negroja!!!")
         }
         
         NSNotificationCenter.defaultCenter().postNotificationName("localNotification", object: notification)
