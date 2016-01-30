@@ -33,11 +33,11 @@
 
 - (void) update:(NSTimeInterval)currentTime
 {
-    [self.children enumerateObjectsUsingBlock:^(SKSpriteNode * child, NSUInteger idx, BOOL *stop) {
+    [self.children enumerateObjectsUsingBlock:^(SKNode * _Nonnull child, NSUInteger idx, BOOL * _Nonnull stop) {
         child.position = CGPointMake(child.position.x-self.scrollingSpeed, child.position.y);
-        if (child.position.x <= -child.size.width){
-            float delta = child.position.x+child.size.width;
-            child.position = CGPointMake(child.size.width*(self.children.count-1)+delta, child.position.y);
+        if (child.position.x <= -child.frame.size.width){
+            float delta = child.position.x+child.frame.size.width;
+            child.position = CGPointMake(child.frame.size.width*(self.children.count-1)+delta, child.position.y);
         }
     }];
 }

@@ -12,20 +12,20 @@ class CountdownViewController: BaseViewController {
 
     @IBOutlet weak var textLabel: LTMorphingLabel?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     var timer: NSTimer?
    
     func updateTimer() {
-        var dateFormater = NSDateFormatter()
+        let dateFormater = NSDateFormatter()
         dateFormater.dateFormat = ("dd:MM:yyyy HH:mm:ss")
         
         
-        var date = dateFormater.dateFromString("28:11:2014 19:36:36")
+        let date = dateFormater.dateFromString("28:11:2014 19:36:36")
         let now = NSDate()
-        var timeLeft = date!.timeIntervalSinceDate(now)
+        let timeLeft = date!.timeIntervalSinceDate(now)
         
         if timeLeft < 0 {
             textLabel?.text = "Išaušo mistinė valanda..."
@@ -63,7 +63,7 @@ class CountdownViewController: BaseViewController {
     
 
     func finishStage() {
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        let button: UIButton = UIButton(type: UIButtonType.Custom)
         button.frame = self.view.bounds
         button.addTarget(self, action: Selector("bringMeBack"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(button)

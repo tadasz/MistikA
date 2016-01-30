@@ -15,9 +15,9 @@ class FindPalepeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var accuracyLabel: UILabel?
     
     var locationManager = CLLocationManager()
-    var region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "78E408FD-48DA-4325-9123-0AEA40925EFF"), identifier: "com.identifier")
+    var region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "78E408FD-48DA-4325-9123-0AEA40925EFF")!, identifier: "com.identifier")
     
-    required init(coder aDecoder: NSCoder)  {
+    required init?(coder aDecoder: NSCoder)  {
         super.init(coder: aDecoder)
     }
     
@@ -51,9 +51,9 @@ class FindPalepeViewController: UIViewController, CLLocationManagerDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-    func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
-        if !beacons!.isEmpty {
-            var beacon = beacons![0] as! CLBeacon
+    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+        if !beacons.isEmpty {
+            var beacon = beacons[0] as! CLBeacon
             let accuracy: Double = beacon.accuracy
             pictureView!.alpha = CGFloat(1.0 / accuracy)
             accuracyLabel!.text = "\(beacon.accuracy)"

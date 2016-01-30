@@ -26,7 +26,7 @@ class StarEmitterView: UIView {
             starsEmitter!.emitterShape = kCAEmitterLayerRectangle;
             starsEmitter!.emitterMode = kCAEmitterLayerUnordered;
             
-            var stars = CAEmitterCell()
+            let stars = CAEmitterCell()
             stars.birthRate = 2
             stars.lifetime = 10
             stars.lifetimeRange = 0.5
@@ -45,7 +45,7 @@ class StarEmitterView: UIView {
             starsEmitter!.emitterCells = [stars];
             
             
-            layer.addSublayer(starsEmitter)
+            layer.addSublayer(starsEmitter!)
         }
     }
     
